@@ -10,6 +10,8 @@ RCT_EXPORT_MODULE(RNJitsiMeetView)
 RCT_EXPORT_VIEW_PROPERTY(onConferenceJoined, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onConferenceTerminated, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onConferenceWillJoin, RCTBubblingEventBlock)
+RCT_EXPORT_VIEW_PROPERTY(onGoToPictureInPicture, RCTBubblingEventBlock)
+RCT_EXPORT_VIEW_PROPERTY(onLeavePictureInPicture, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onEnteredPip, RCTBubblingEventBlock)
 
 - (UIView *)view
@@ -109,6 +111,24 @@ RCT_EXPORT_METHOD(endCall)
     }
 
     jitsiMeetView.onConferenceWillJoin(data);
+}
+
+- (void)goToPictureInPicture:(NSDictionary *)data {
+    RCTLogInfo(@"Go to picture in picture");
+    if (!jitsiMeetView.onGoToPictureInPicture) {
+        return;
+    }
+
+    jitsiMeetView.onGoToPictureInPicture(data);
+}
+
+- (void)leavePictureInPicture:(NSDictionary *)data {
+    RCTLogInfo(@"Go to picture in picture");
+    if (!jitsiMeetView.onLeavePictureInPicture) {
+        return;
+    }
+
+    jitsiMeetView.onLeavePictureInPicture(data);
 }
 
 - (void)enterPictureInPicture:(NSDictionary *)data {

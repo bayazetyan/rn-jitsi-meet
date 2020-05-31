@@ -19,6 +19,20 @@
 @optional
 
 /**
+ * Called when PIP iz activated.
+ *
+ * The `data` dictionary contains a `url` key with the conference URL.
+ */
+- (void)goToPictureInPicture:(NSDictionary *)data;
+
+/**
+ * Called when PIP iz activated.
+ *
+ * The `data` dictionary contains a `url` key with the conference URL.
+ */
+- (void)leavePictureInPicture:(NSDictionary *)data;
+
+/**
  * Called when a conference was joined.
  *
  * The `data` dictionary contains a `url` key with the conference URL.
