@@ -9,4 +9,5 @@
 @property (nonatomic, copy) RCTBubblingEventBlock onEnteredPip;
 @property (nonatomic, copy) RCTBubblingEventBlock onGoToPictureInPicture;
 @property (nonatomic, copy) RCTBubblingEventBlock onLeavePictureInPicture;
+@property (nonatomic, copy) RCTBubblingEventBlock onInvitePeople;
 @end

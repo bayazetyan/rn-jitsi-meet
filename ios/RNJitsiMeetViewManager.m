@@ -13,6 +13,7 @@ RCT_EXPORT_VIEW_PROPERTY(onConferenceWillJoin, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onGoToPictureInPicture, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onLeavePictureInPicture, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onEnteredPip, RCTBubblingEventBlock)
+RCT_EXPORT_VIEW_PROPERTY(onInvitePeople, RCTBubblingEventBlock)
 
 - (UIView *)view
 {
@@ -42,7 +43,7 @@ RCT_EXPORT_METHOD(call:(NSString *)urlString userInfo:(NSDictionary *)userInfo)
       }
     }
     dispatch_sync(dispatch_get_main_queue(), ^{
-        JitsiMeetConferenceOptions *options = [JitsiMeetConferenceOptions fromBuilder:^(JitsiMeetConferenceOptionsBuilder *builder) {        
+        JitsiMeetConferenceOptions *options = [JitsiMeetConferenceOptions fromBuilder:^(JitsiMeetConferenceOptionsBuilder *builder) {
             builder.room = urlString;
             builder.userInfo = _userInfo;
             builder.serviceName = userInfo[@"serviceName"];
@@ -67,7 +68,7 @@ RCT_EXPORT_METHOD(audioCall:(NSString *)urlString userInfo:(NSDictionary *)userI
       }
     }
     dispatch_sync(dispatch_get_main_queue(), ^{
-        JitsiMeetConferenceOptions *options = [JitsiMeetConferenceOptions fromBuilder:^(JitsiMeetConferenceOptionsBuilder *builder) {        
+        JitsiMeetConferenceOptions *options = [JitsiMeetConferenceOptions fromBuilder:^(JitsiMeetConferenceOptionsBuilder *builder) {
             builder.room = urlString;
             builder.userInfo = _userInfo;
             builder.audioOnly = YES;
@@ -129,6 +130,15 @@ RCT_EXPORT_METHOD(endCall)
     }
 
     jitsiMeetView.onLeavePictureInPicture(data);
+}
+
+- (void)invitePeople:(NSDictionary *)data {
+    RCTLogInfo(@"Invite People");
+    if (!jitsiMeetView.onInvitePeople) {
+        return;
+    }
+
+    jitsiMeetView.onInvitePeople(data);
 }
 
 - (void)enterPictureInPicture:(NSDictionary *)data {
