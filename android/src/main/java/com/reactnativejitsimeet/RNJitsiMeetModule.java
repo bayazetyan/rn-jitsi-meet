@@ -61,6 +61,7 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
                             .setAudioOnly(false)
                             .setUserInfo(_userInfo)
                             .setServiceName(_userInfo.getServiceName())
+                            .setFeatureFlag("call-integration.enabled", false)
                             .build();
                     mJitsiMeetViewReference.getJitsiMeetView().join(options);
                 }
@@ -98,6 +99,7 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
                             .setAudioOnly(true)
                             .setServiceName(_userInfo.getServiceName())
                             .setUserInfo(_userInfo)
+                            .setFeatureFlag("call-integration.enabled", false)
                             .build();
                     mJitsiMeetViewReference.getJitsiMeetView().join(options);
                 }
