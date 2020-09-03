@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.facebook.react</groupId>
+  <artifactId>react-native-image-picker</artifactId>
+  <version>2.3.1-jitsi-5231915</version>
+  <packaging>aar</packaging>
+  <name>react-native-image-picker</name>
+  <description>A React Native module that allows you to use native UI to select media from the device library or directly from the camera</description>
+  <url>https://github.com/react-community/react-native-image-picker#readme</url>
+  <licenses>
+    <license>
+      <name>MIT</name>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <dependencies>
+    <dependency>
+      <groupId>com.facebook.react</groupId>
+      <artifactId>react-native</artifactId>
+      <version>0.61</version>
+    </dependency>
+  </dependencies>
+</project>
